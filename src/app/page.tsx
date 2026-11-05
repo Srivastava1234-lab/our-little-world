@@ -1,7 +1,9 @@
 
 "use client";
 
-import { useState, useRef } from "react";
+import { useState } from "react";
+import MusicPlayer from "./components/MusicPlayer";
+import { birthday } from "./data";
 
 const memories = [
   {
@@ -17,10 +19,22 @@ const memories = [
     description: "Anywhere is my favorite place with you.",
   },
   {
-    image: "/images/photo3.jpg",
+    image: "/images/photo3.png",
     date: "LITTLE MOMENTS",
     title: "Your smile",
     description: "One of the million reasons I love you.",
+  },
+    {
+    image: "/images/photo6.JPG",
+    date: "ALWAYS",
+    title: "My favorite person",
+    description: "And the best is still yet to come.",
+  },
+  {
+    image: "/images/photo5.jpg",
+    date: "MY HAPPY PLACE",
+    title: "Close to you",
+    description: "You're home to me, no matter where we are.",
   },
   {
     image: "/images/photo4.jpg",
@@ -28,22 +42,10 @@ const memories = [
     title: "Side by side",
     description: "Making memories, one day at a time.",
   },
-  {
-    image: "/images/photo5.jpg",
-    date: "MY HAPPY PLACE",
-    title: "Close to you",
-    description: "If home were a person, it would be you.",
-  },
-  {
-    image: "/images/photo6.jpg",
-    date: "ALWAYS",
-    title: "My favorite person",
-    description: "And the best is still yet to come.",
-  },
 ];
 
 const milestones = [
-  {
+    {
     date: "THE DAY IT ALL BEGAN",
     title: "When our story started",
     description:
@@ -58,12 +60,62 @@ const milestones = [
     image: "/images/photo8.jpg",
   },
   {
-    date: "RIGHT NOW",
-    title: "Still choosing you",
+    date: "THE BEAUTIFUL MOMENTS",
+    title: "Making memories together",
     description:
-      "Every memory with you means something to me. I can't wait to see all the beautiful things ahead of us.",
+      "Every smile, every adventure, and every second spent with you became a memory I wish I could relive forever.",
+    image: "/images/photo14.jpg",
+  },
+  {
+    date: "THE LITTLE THINGS",
+    title: "Happiness in your presence",
+    description:
+      "It's the simple moments with you that mean the most. Even doing nothing feels special when I'm with you.",
+    image: "/images/photo11.jpg",
+  },
+  {
+    date: "MY FAVORITE PERSON",
+    title: "You make everything better",
+    description:
+      "Your smile has a way of making my hardest days brighter, and your presence makes everything feel right.",
     image: "/images/photo9.jpg",
   },
+  {
+    date: "EVERY SECOND COUNTS",
+    title: "Moments I treasure",
+    description:
+      "If I could pause time during any moment, it would be the ones where I'm right beside you.",
+    image: "/images/photo10.jpg",
+  },
+  {
+    date: "CLOSER THAN EVER",
+    title: "Growing together",
+    description:
+      "Through every laugh, every challenge, and every experience, I'm grateful that we get to grow together.",
+    image: "/images/photo12.jpg",
+  },
+  {
+    date: "MY HAPPIEST PLACE",
+    title: "Where I belong",
+    description:
+      "No matter where life takes us, being with you will always feel like being exactly where I'm meant to be.",
+    image: "/images/photo13.jpg",
+  },
+  {
+    date: "A LOVE WORTH KEEPING",
+    title: "My favorite chapter",
+    description:
+      "Our story is filled with moments I'll always hold close, and somehow, every new memory becomes my favorite.",
+    image: "/images/photo15.jpg",
+  },
+  {
+    date: "FOREVER AND ALWAYS",
+    title: "Still choosing you",
+    description:
+      "I wouldn't trade our story for anything. I can't wait to discover all the beautiful chapters we have yet to write together.",
+    image: "/images/photo16.jpg",
+  },
+
 ];
 
 const reasons = [
@@ -103,7 +155,6 @@ export default function Home() {
   const [letterOpen, setLetterOpen] = useState(false);
   const [surpriseOpen, setSurpriseOpen] = useState(false);
   const [selectedPhoto, setSelectedPhoto] = useState<string | null>(null);
-  const [musicOn, setMusicOn] = useState(false);
 
   return (
     <main>
@@ -123,13 +174,7 @@ export default function Home() {
           A letter for you
         </a>
 
-        <button
-          className="music-button"
-          onClick={() => setMusicOn(!musicOn)}
-          aria-label="Toggle music reminder"
-        >
-          {musicOn ? "♫" : "♪"} <span>{musicOn ? "Music on" : "Our song"}</span>
-        </button>
+        <MusicPlayer src={birthday.song} />
       </nav>
 
       {/* Hero */}
@@ -160,7 +205,7 @@ export default function Home() {
           <div className="hero-photo-wrap">
             <div className="hero-photo">
               <img
-                src="/images/our-favorite-photo.jpg"
+                src="/images/our-favorite-photo.JPG"
                 alt="One of our favorite memories"
               />
               <span className="photo-heart">♥</span>

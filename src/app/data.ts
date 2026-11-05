@@ -8,7 +8,7 @@ export const birthday = {
   birthdayMessage:
     "Happy birthday to the girl who makes my world softer, brighter, and so much more beautiful.",
   relationshipStart: "2023-06-15", // Change to your date
-  song: "/music/our-song.mp3",
+  song: "/music/song.mp3", // file lives in public/music/song.mp3
   video: "/videos/birthday.mp4",
   heroImage: "/images/hero.jpg",
   letter: [
